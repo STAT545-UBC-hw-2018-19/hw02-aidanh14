@@ -39,25 +39,46 @@ str(gapminder)
 
 ## Exploring some Variables
 
+Here we explore the Gapminder dataframe a bit and then look at the years data was taken, and the contries, individually.
+
 ```{r}
+# Start of with summary of the full data frame
+summary(gapminder)
 
+# See how many unique years of data and the range of years
 select(gapminder, year) %>%
-  range()
+  distinct() -> years
+years
+  
+# See how many unique years there are and the range
+years %>%
+  { c(nrow(.), range(.)) } -> yearstats
+yearstats
 
-select(gapminder, lifeExp) %>%
-  range()
-
-# Select all the unique values for "country"
+# Try the same for "country"
 select(gapminder, country) %>%
   distinct() -> countries
 
-# Display the vector of countries and how many there are
 countries
 nrow(countries)
 
-#Find out how many rows of data there are for a single country
-filter(gapminder, country %in% c("Algeria")) %>%
-  nrow()
 
 ```
+
+Next, we plot a distribution and violin plot, similar to what was done in class. We can also use the `filter` function to plot a smaller set of data.
+
+```{r}
+
+# As done in class, view the probability distribution for a variable
+ggplot(gapminder, aes(lifeExp)) +
+  geom_density() +
+  geom_histogram(aes(y=..density..),fill='red', alpha=0.4)
+  
+filter(gapminder, year==1992) %>%
+  ggplot(aes(continent, lifeExp)) +
+  geom_violin()
+
+filter(gapminder, continent=="Oceania", year==1992)
+```
+
 
