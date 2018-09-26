@@ -1,0 +1,36 @@
+---
+title: "Homework 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Aidan Hughes
+
+Student \# 18045138
+
+Tuesday, September 25, 2018
+
+## Exploring the Gapminder Object
+
+```{r}
+library(gapminder)
+
+# Type/ class of the object
+typeof(gapminder)
+class(gapminder)
+
+# Size of the object
+nrow(gapminder)
+
+ncol(gapminder)
+# or
+length(gapminder)
+
+# Data type of each variable
+str(gapminder)
+
+```
+
