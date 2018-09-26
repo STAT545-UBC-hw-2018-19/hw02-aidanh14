@@ -16,7 +16,8 @@ Tuesday, September 25, 2018
 ## Exploring the Gapminder Object
 
 ```{r}
-library(gapminder)
+library("gapminder")
+library("tidyverse")
 
 # Type/ class of the object
 typeof(gapminder)
@@ -31,6 +32,32 @@ length(gapminder)
 
 # Data type of each variable
 str(gapminder)
+
+```
+
+
+
+## Exploring some Variables
+
+```{r}
+
+select(gapminder, year) %>%
+  range()
+
+select(gapminder, lifeExp) %>%
+  range()
+
+# Select all the unique values for "country"
+select(gapminder, country) %>%
+  distinct() -> countries
+
+# Display the vector of countries and how many there are
+countries
+nrow(countries)
+
+#Find out how many rows of data there are for a single country
+filter(gapminder, country %in% c("Algeria")) %>%
+  nrow()
 
 ```
 
