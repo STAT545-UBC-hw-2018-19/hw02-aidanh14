@@ -1,6 +1,6 @@
 ---
 title: "Homework 2"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -74,11 +74,20 @@ ggplot(gapminder, aes(lifeExp)) +
   geom_density() +
   geom_histogram(aes(y=..density..),fill='red', alpha=0.4)
   
+```
+
+Let's try a violin plot of a given year's life expectancy for each continent.
+
+```{r}
 filter(gapminder, year==1992) %>%
   ggplot(aes(continent, lifeExp)) +
   geom_violin()
 
-filter(gapminder, continent=="Oceania", year==1992)
 ```
 
+**Where did Oceania go?** Looking at the data for 1992, the reason is that it is only a small data set.
+
+```{r}
+filter(gapminder, continent=="Oceania", year==1992)
+```
 
