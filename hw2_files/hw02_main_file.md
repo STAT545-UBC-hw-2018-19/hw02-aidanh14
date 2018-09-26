@@ -10,6 +10,8 @@ Tuesday, September 25, 2018
 Exploring the Gapminder Object
 ------------------------------
 
+Let's look at a bunch of stats about the full Gapminder dataframe.
+
 ``` r
 library("gapminder")
 library("tidyverse")
@@ -159,6 +161,9 @@ nrow(countries)
 ```
 
     ## [1] 142
+
+Data Plotting
+-------------
 
 Next, we plot a distribution and violin plot, similar to what was done in class. We can also use the `filter` function to plot a smaller set of data.
 
